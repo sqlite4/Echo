@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShieldWise - Statistics</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        h1 {
+            text-align: center;
+            color: #336699;
+            padding: 20px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #336699;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        footer {
+            background-color: #336699;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 5px 10px;
+            font-size: 14px;
+            font-weight: bold;
+            color: #fff;
+            border-radius: 5px;
+        }
+
+        .badge-success {
+            background-color: #5cb85c;
+        }
+
+        .badge-danger {
+            background-color: #d9534f;
+        }
+
+        .badge-pro {
+            background-color: #d9c04f;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <h1>Server Stats</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Sent Traffic</th>
+                <th>Received Traffic</th>
+                <th>Average CPU</th>
+                <th>Timestamp</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for record in data %}
+                <tr>
+                    <td>{{ record[0] }}</td>
+                    <td>{{ record[1] }}</td>
+                    <td>{{ record[2] }}</td>
+                    <td>{{ record[3] }}%</td>
+                    <td>{{ record[4] }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h1>Port Status/Logs</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Port Number</th>
+                <th>Status</th>
+                <th>Timestamp</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for portRecord in portData %}
+                <tr>
+                    <td>{{ portRecord[0] }}</td>
+                    <td>{{ portRecord[1] }}</td>
+                    <td>{{ portRecord[2] }}</td>
+                    <td>{{ portRecord[3] }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h1>IP Pool List <span class="badge badge-pro">PRO</span></h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>IP Address</th>
+                <th>Timestamp</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for ipRecord in ipData %}
+                <tr>
+                    <td>{{ ipRecord[0] }}</td>
+                    <td>{{ ipRecord[1] }}</td>
+                    <td>{{ ipRecord[2] }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <div style="height: 20px;"></div>
+
+    <footer>
+        <p>&copy; 2024 ShieldWise. All rights reserved.</p>
+    </footer>
+</body>
+</html>
