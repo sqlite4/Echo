@@ -2,6 +2,10 @@
 
 Echo is a comprehensive application designed to monitor and display key statistics related to the performance of a server. The system is implemented in Python, utilizing the Flask web framework for creating a web interface. The monitored statistics include network traffic, CPU usage, and various server logs.
 
+# Before you use Echo !!!
+
+You should create a folder named "templates" and then you gotta drag "index.html" to "templates" folder.
+
 # Server Statistics:
 
 The system collects and displays real-time data on sent and received network traffic, CPU usage, and other relevant server metrics.
